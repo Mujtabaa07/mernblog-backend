@@ -2,7 +2,16 @@ const express = require("express");
 const app = express();
 const { MongoClient } = require("mongodb");
 const PORT = process.env.PORT || 8000;
+const cors = require("cors");
 
+//Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: ["http://localhost:8000", "https://mernblog.onrender.com"],
+  })
+);
 
 //Initialze middleware
 app.use(express.json({ extended: false }));
