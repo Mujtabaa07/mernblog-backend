@@ -9,8 +9,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: ["http://localhost:8000", "https://mernblog.onrender.com"],
+    origin: ["https://mernblog-frontend-phi.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true,
   })
+);
+mongoose.connect(
+  "mongodb+srv:MujShif01:MujShif@2002@cluster0.5zvzd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 );
 
 //Initialze middleware
